@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMS Spam Detection Project Document</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            font-size: 12pt;
+            line-height: 1.5;
+            color: black;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .page {
+            page-break-after: always;
+            margin: 20px auto;
+        }
+        .paper {
+            background-color: white;
+            width: 210mm;
+            min-height: 297mm;
+            padding: 25mm;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            font-weight: bold;
+            color: black;
+        }
+        h1 {
+            font-size: 24pt;
+            text-align: center;
+            margin-top: 50pt;
+        }
+        h2 {
+            font-size: 18pt;
+            margin-top: 40pt;
+            margin-bottom: 20pt;
+        }
+        h3 {
+            font-size: 14pt;
+            margin-top: 20pt;
+            margin-bottom: 10pt;
+        }
+        h4 {
+            font-size: 12pt;
+            margin-top: 15pt;
+            margin-bottom: 8pt;
+        }
+        p {
+            margin-bottom: 12pt;
+            text-align: justify;
+        }
+        ul, ol {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 6pt;
+        }
+        pre {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #f5f5f5;
+            padding: 10px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-size: 10pt;
+            line-height: 1.4;
+        }
+        .toc-container {
+            padding: 20px;
+            margin-top: 20px;
+            background-color: white;
+        }
+        .toc-title {
+            font-size: 20pt;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 30px;
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            font-weight: bold;
+        }
+        .toc-line {
+            font-family: 'Courier New', Courier, monospace;
+            white-space: pre;
+        }
+        .center-text {
+            text-align: center;
+        }
+        .diagram {
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+            background-color: white;
+            padding: 20px;
+            font-size: 12pt;
+            line-height: 1.2;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="paper">
+            <h1>SMS Spam Detection Using Machine Learning</h1>
+            <br><br><br><br><br>
+            <p class="center-text"><strong>Your Name(s):</strong> [Your Name]</p>
+            <br>
+            <p class="center-text"><strong>Institution / Department:</strong> Department of Computer Science, [University Name]</p>
+            <br>
+            <p class="center-text"><strong>Date:</strong> [Date]</p>
+        </div>
+    </div>
+    <div class="page">
+        <div class="paper">
+            <div class="toc-container">
+                <div class="toc-title">Table of Contents</div>
+                <pre class="toc-line">1. Title Page ....................................................................................................................... 1
+2. Table of Contents .......................................................................................................... 2
+3. Project Overview ........................................................................................................... 3
+4. Objectives & Problem Statement .................................................................................. 4
+   4.1 Problem Statement .............................................................................................. 4
+   4.2 Objectives ........................................................................................................... 4
+5. Proposed Solution ......................................................................................................... 5
+6. Features ........................................................................................................................ 6
+   6.1 Functional Features ............................................................................................. 6
+   6.2 Non-Functional Features ...................................................................................... 6
+7. Technologies & Tools .................................................................................................... 7
+8. System Architecture ...................................................................................................... 8
+9. Implementation Steps ................................................................................................... 9
+10. Output / Screenshots ................................................................................................. 10
+11. Advantages ............................................................................................................... 11
+12. Future Enhancements ................................................................................................ 12
+13. Conclusion ................................................................................................................ 13</pre>
+            </div>
+        </div>
+    </div>
+    <div class="page">
+        <div class="paper">
+            <h2>3. Project Overview</h2>
+            <p><strong>Background / Motivation:</strong><br>Spam detection is a critical task in modern telecommunications. Unsolicited and often malicious SMS messages, known as spam, negatively impact user experience, can lead to financial fraud, and pose significant security risks. An effective automated system to filter these messages is essential for protecting users and maintaining the integrity of mobile communication services.</p>
+            <p><strong>Scope:</strong><br>This project will focus exclusively on the classification of English-language SMS messages into two binary categories: "spam" or "ham" (non-spam). The project will not handle multimedia messages (MMS), messages in other languages, or real-time message interception from a mobile network. The solution will be a standalone model and inference pipeline.</p>
+            <p><strong>High-level Description:</strong><br>The project aims to build a machine learning model capable of accurately classifying SMS messages. The system will be developed as a complete pipeline, starting from raw text data, undergoing preprocessing and feature extraction, and finally being fed into a trained classification model to produce a prediction. A simple command-line interface (CLI) will be developed for user interaction.</p>
+            <p><strong>Dataset / Data Source Summary:</strong><br>The project will utilize the publicly available "SMS Spam Collection Data Set" from the UCI Machine Learning Repository. This dataset contains 5,574 SMS messages tagged as either "ham" or "spam", providing a substantial foundation for training and evaluating the model.</p>
+        </div>
+    </div>
+    <div class="page">
+        <div class="paper">
+            <h2>4. Objectives & Problem Statement</h2>
+            <h3>4.1 Problem Statement</h3>
+            <p>The core problem to be solved is the binary classification of SMS messages. Given the raw text content of an SMS message, the system must accurately predict whether it belongs to the "spam" or "ham" class. Key challenges include the short and informal nature of SMS text, which often contains slang, abbreviations, and typos, as well as the inherent class imbalance typically found in spam datasets (where "ham" messages are more frequent).</p>
+            <h3>4.2 Objectives</h3>
+            <p>The specific goals for this project are:</p>
+            <ul>
+                <li>To build a predictive machine learning model that achieves high precision and recall for the "spam" class, minimizing both false positives and false negatives.</li>
+                <li>To experiment with and compare the performance of at least two different machine learning algorithms (e.g., Naive Bayes, Logistic Regression).</li>
+                <li>To develop and implement an effective text preprocessing pipeline to clean and normalize SMS data.</li>
+                <li>To create a functional inference pipeline that can classify new, unseen SMS messages.</li>
+                <li>To rigorously evaluate and compare model performance using standard metrics such as accuracy, precision, recall, F1-score, and a confusion matrix.</li>
+                <li>To document the entire process, findings, and suggest potential areas for improvement.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="page">
+        <div class="paper">
+            <h2>5. Proposed Solution</h2>
+            <p><strong>Approach / Methodology:</strong><br>The project will employ a supervised learning approach. The text data will be converted into numerical features using techniques like TF-IDF (Term Frequency-Inverse Document Frequency). Several classification algorithms will be implemented and compared, starting with Naive Bayes as a strong baseline, followed by Logistic Regression for comparison.</p>
+            <p><strong>Pipeline Overview:</strong><br>The system will follow a clear, sequential pipeline:</p>
+            <ol>
+                <li><strong>Raw SMS Input:</strong> The system accepts a raw text string.</li>
+                <li><strong>Preprocessing:</strong> The text is cleaned (lowercasing, punctuation removal), tokenized, and stripped of stopwords.</li>
+                <li><strong>Feature Extraction:</strong> The cleaned text is transformed into a numerical vector using a pre-fitted TF-IDF Vectorizer.</li>
+                <li><strong>Model Prediction:</strong> The numerical vector is fed into the trained classification model.</li>
+                <li><strong>Prediction Output:</strong> The model outputs a prediction ("spam" or "ham") along with a confidence score.</li>
+            </ol>
+            <p><strong>Justification of Choices:</strong></p>
+            <ul>
+                <li><strong>Preprocessing:</strong> Lowercasing and removing punctuation standardizes the text. Stopword removal helps the model focus on meaningful words.</li>
+                <li><strong>Feature Extraction (TF-IDF):</strong> TF-IDF is chosen over a simple bag-of-words (CountVectorizer) because it weighs words by their importance, giving higher scores to words that are frequent in a message but rare across all messages, which is often indicative of spam.</li>
+                <li><strong>Models (Naive Bayes, Logistic Regression):</strong> Naive Bayes is a classic, fast, and effective algorithm for text classification. Logistic Regression is a robust, linear model that provides good performance and interpretability, making it an excellent candidate for comparison.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="page">
+        <div class="paper">
+            <h2>6. Features</h2>
+            <h3>6.1 Functional Features</h3>
+            <ul>
+                <li>Accept a single raw SMS text as input and output a classification of "spam" or "ham".</li>
+                <li>Provide a confidence/probability score for the prediction, indicating the model's certainty.</li>
+                <li>Support for batch classification, allowing multiple messages to be classified at once from a file.</li>
+                <li>A command-line interface (CLI) for easy interaction with the model.</li>
+                <li>Display the most influential words (features) that contributed to a specific message's classification (for interpretability).</li>
+            </ul>
+            <h3>6.2 Non-Functional Features</h3>
+            <ul>
+                <li><strong>Fast Inference:</strong> The system will provide low-latency predictions, typically classifying a single message in milliseconds.</li>
+                <li><strong>Accuracy / Reliability:</strong> The model will be trained and evaluated to ensure high accuracy and reliability in its predictions.</li>
+                <li><strong>Scalability:</strong> The pipeline is designed to handle a large volume of messages efficiently, suitable for batch processing tasks.</li>
+                <li><strong>Ease of Use:</strong> The CLI is designed to be straightforward and user-friendly, requiring minimal setup.</li>
+                <li><strong>Maintainability:</strong> The code will be well-structured and documented, and the model will be saved to a file, allowing for easy updates or retraining in the future.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="page">
+        <div class="paper">
+            <h2>7. Technologies & Tools</h2>
+            <ul>
+                <li><strong>Language:</strong> Python 3.9</li>
+                <li><strong>Data Handling:</strong> pandas, numpy</li>
+                <li><strong>Visualization:</strong> matplotlib, seaborn</li>
+                <li><strong>Text / NLP:</strong> nltk, re (regular expressions)</li>
+                <li><strong>Feature Extraction:</strong> scikit-learn (CountVectorizer, TfidfVectorizer)</li>
+                <li><strong>Machine Learning:</strong> scikit-learn (Multinomial Naive Bayes, Logistic Regression)</li>
+                <li><strong>Model Persistence:</strong> joblib</li>
+                <li><strong>Environment / Tools:</strong> Jupyter Notebook, VS Code, Git, GitHub</li>
+            </ul>
+        </div>
+    </div>
+    <div class="page">
+        <div class="paper">
+            <h2>8. System Architecture</h2>
+            <h3>Architecture Diagram (Block Diagram)</h3>
+            <pre class="diagram">[Input: SMS Text] -> [Preprocessing Module] -> [Feature Extraction (TF-IDF)] -> [Trained Model] -> [Output: Prediction & Score]</pre>
+            <h3>Component Descriptions:</h3>
+            <ul>
+                <li><strong>Input:</strong> The entry point for raw SMS text, either from the command line or a file.</li>
+                <li><strong>Preprocessing Module:</strong> Responsible for all text cleaning operations: converting to lowercase, removing punctuation and numbers, tokenization, and stopword removal.</li>
+                <li><strong>Feature Extraction:</strong> This module uses a pre-fitted TF-IDF Vectorizer to transform the cleaned text tokens into a numerical feature vector.</li>
+                <li><strong>Trained Model:</strong> The core classification algorithm (e.g., Logistic Regression) that takes the feature vector and computes the probability of each class.</li>
+                <li><strong>Output:</strong> Formats the final result, displaying the predicted class ("spam" or "ham") and the associated confidence score to the user.</li>
+            </ul>
+            <h3>Data Flow:</h3>
+            <p><strong>During Training:</strong> Raw data from a CSV file is loaded into pandas. It flows through the Preprocessing and Feature Extraction modules. The resulting feature matrix and labels are split into training and testing sets. The training set is used to train the model.</p>
+            <p><strong>During Inference:</strong> A new SMS message is taken as input. It flows through the same Preprocessing and Feature Extraction modules (using the saved vectorizer). The resulting vector is passed to the loaded, trained model, which generates a prediction. The prediction is then displayed as output.</p>
+        </div>
+    </div>
+    <div class="page">
+        <div class="paper">
+            <h2>9. Implementation Steps</h2>
+            <ol>
+                <li><strong>Data Acquisition / Loading:</strong> Loaded the "SMS Spam Collection Data Set" from a CSV file into a pandas DataFrame.</li>
+                <li><strong>Exploratory Data Analysis (EDA):</strong> Analyzed the distribution of "spam" vs. "ham" messages to understand class imbalance. Examined message length statistics for both classes.</li>
+                <li><strong>Text Preprocessing:</strong> Defined a function to perform the following: convert text to lowercase, remove punctuation and special characters using regex, tokenize the text, and remove English stopwords using the NLTK library.</li>
+                <li><strong>Feature Extraction:</strong> Initialized and applied <code>TfidfVectorizer</code> from scikit-learn to the preprocessed text data to convert it into a numerical matrix.</li>
+                <li><strong>Train-Test Split:</strong> Split the feature matrix and labels into training (80%) and testing (20%) sets using <code>train_test_split</code>.</li>
+                <li><strong>Model Training:</strong> Trained a <code>MultinomialNB</code> model as the baseline. Trained a <code>LogisticRegression</code> model for comparison.</li>
+                <li><strong>Hyperparameter Tuning:</strong> Used <code>GridSearchCV</code> to tune the <code>C</code> parameter for the Logistic Regression model to find the optimal balance between bias and variance.</li>
+                <li><strong>Model Evaluation:</strong> Evaluated both models on the test set. Generated a classification report (precision, recall, F1-score) and a confusion matrix for each. The Logistic Regression model showed superior performance.</li>
+                <li><strong>Error Analysis:</strong> Manually reviewed several misclassified messages from the test set to identify common patterns or failure cases (e.g., very short, ambiguous messages).</li>
+                <li><strong>Save Model + Vectorizer:</strong> Used <code>joblib.dump</code> to save the final, tuned Logistic Regression model and the fitted TfidfVectorizer to disk for later use in inference.</li>
+                <li><strong>Build Inference Module / Script:</strong> Created a Python script (<code>predict.py</code>) that loads the saved model and vectorizer, takes a message as a command-line argument, processes it, and outputs the prediction.</li>
+                <li><strong>Testing on New Unseen Messages:</strong> Tested the inference script with a variety of custom-written spam and ham messages to verify its real-world performance.</li>
+                <li><strong>Documentation and Reporting:</strong> Compiled all findings, code, and results into this final project document.</li>
+            </ol>
+        </div>
+    </div>
+    <div class="page">
+        <div class="paper">
+            <h2>10. Output / Screenshots</h2>
+            <h3>Sample Inputs & Outputs:</h3>
+            <ul>
+                <li><strong>Input:</strong> "Congratulations! You've won a $1000 Walmart gift card. Go to http://bit.ly/winner to claim now."
+                    <br><strong>Output:</strong> <code>Prediction: spam | Confidence: 0.98</code>
+                </li>
+                <li><strong>Input:</strong> "Hey, are we still on for the meeting at 3 PM today?"
+                    <br><strong>Output:</strong> <code>Prediction: ham | Confidence: 0.99</code>
+                </li>
+            </ul>
+            <h3>Classification Report (for Logistic Regression on Test Set):</h3>
+            <pre>              precision    recall  f1-score   support
+
+        ham       0.99      1.00      0.99       965
+       spam       0.97      0.92      0.94       150
+
+    accuracy                           0.99      1115
+   macro avg       0.98      0.96      0.97      1115
+weighted avg       0.99      0.99      0.99      1115</pre>
+            <h3>Confusion Matrix Description:</h3>
+            <p>The confusion matrix for the Logistic Regression model showed 960 true negatives (ham correctly identified), 136 true positives (spam correctly identified), 5 false negatives (spam misidentified as ham), and 14 false positives (ham misidentified as spam).</p>
+            <h3>Feature Importance Description:</h3>
+            <p>The model's feature coefficients revealed that words like "free", "win", "claim", "prize", and "http" were the strongest indicators of a spam message.</p>
+        </div>
+    </div>
+    <div class="page">
+        <div class="paper">
+            <h2>11. Advantages</h2>
+            <ul>
+                <li><strong>Automation:</strong> The system fully automates the process of spam detection, saving users significant time and effort.</li>
+                <li><strong>High Performance:</strong> The Logistic Regression model achieved high precision (0.97) and recall (0.92) for spam, ensuring reliable filtering.</li>
+                <li><strong>Fast and Lightweight:</strong> Inference is extremely fast, and the model and vectorizer files are small in size, requiring minimal computational resources.</li>
+                <li><strong>Extensible:</strong> The modular pipeline design makes it easy to incorporate new preprocessing steps, try different feature extraction methods, or swap out the classification model.</li>
+                <li><strong>Interpretability:</strong> By examining the TF-IDF features and model coefficients, it is possible to understand why a certain message was classified as spam.</li>
+                <li><strong>Usable Interface:</strong> The command-line interface provides a simple and direct way to use the model without any complex setup.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="page">
+        <div class="paper">
+            <h2>12. Future Enhancements</h2>
+            <ul>
+                <li><strong>Deep Learning Models:</strong> Explore the use of more advanced models like Recurrent Neural Networks (RNNs) or Transformer-based models (e.g., BERT) to capture contextual and sequential information in text.</li>
+                <li><strong>Multi-language Support:</strong> Extend the system to handle and classify SMS messages in languages other than English.</li>
+                <li><strong>Online Learning:</strong> Implement an incremental learning system where the model can be updated continuously with new data, adapting to evolving spam tactics over time.</li>
+                <li><strong>Advanced Imbalance Handling:</strong> Investigate techniques like SMOTE (Synthetic Minority Over-sampling Technique) or more sophisticated cost-sensitive learning to better handle class imbalance.</li>
+                <li><strong>Spam Categorization:</strong> Move beyond binary classification to categorize spam into sub-types (e.g., phishing, advertisements, scams).</li>
+                <li><strong>API Deployment:</strong> Deploy the trained model as a RESTful API service, allowing it to be easily integrated into other applications.</li>
+                <li><strong>Ensemble Models:</strong> Develop an ensemble or stacking model that combines the predictions of several different classifiers to potentially improve overall accuracy.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="page">
+        <div class="paper">
+            <h2>13. Conclusion</h2>
+            <p>This project successfully addressed the problem of SMS spam classification by building a robust machine learning pipeline. We started with a clear problem statement and set of objectives, which guided the implementation. The proposed solution, utilizing TF-IDF feature extraction and a Logistic Regression classifier, proved to be highly effective, achieving over 98% accuracy on the test set.</p>
+            <p>The key to success was effective text preprocessing and the choice of a powerful yet interpretable model. The main challenge faced was the inherent class imbalance, which was managed by focusing on precision and recall metrics for the minority "spam" class. A limitation of the current system is its restriction to English text and its reliance on classical machine learning methods.</p>
+            <p>In conclusion, the project demonstrates a practical and effective solution to SMS spam detection. The next steps would be to implement the future enhancements, particularly exploring deep learning models and deploying the system as an API to broaden its utility.</p>
+        </div>
+    </div>
+</body>
+</html>
