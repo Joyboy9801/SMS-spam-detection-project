@@ -8,10 +8,6 @@ This project implements a machine learning pipeline to classify SMS messages as 
 - **Solution:** A supervised learning model trained on the UCI SMS Spam Collection Dataset.
 - **Technology:** Python, Scikit-learn, Pandas, NLTK.
 
-## Project Report
-
-For a detailed, formal description of the project, including methodology, architecture, and results, please see the full project document: [project_document.html](project_document.html)
-
 ## Repository Structure
 
 ```
